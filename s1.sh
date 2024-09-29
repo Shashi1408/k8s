@@ -13,7 +13,7 @@ systemctl start docker
 systemctl enable docker
 usermod -aG docker root
 
-cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+cat <<EOF | tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
 baseurl=https://pkgs.k8s.io/core:/stable:/v1.31/rpm/
