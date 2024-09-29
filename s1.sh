@@ -6,6 +6,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
 
+sleep 15
 sysctl --system
 yum install docker -y
 systemctl start docker
@@ -21,6 +22,7 @@ gpgcheck=1
 gpgkey=https://pkgs.k8s.io/core:/stable:/v1.31/rpm/repodata/repomd.xml.key
 EOF
 
+sleep 15
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
 systemctl enable --now kubelet
@@ -31,5 +33,8 @@ mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
-sleep 60
+sleep 20
 kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+
+sleep 15
+kubeadm token create --print-join-command
