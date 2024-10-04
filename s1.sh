@@ -27,7 +27,7 @@ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
 systemctl enable --now kubelet
 
-kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=Mem
+kubeadm init --pod-network-cidr=10.0.0.0/16 --ignore-preflight-errors=Mem
 
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
