@@ -1,0 +1,11 @@
+gcloud container clusters create k8s1 --region us-central1-c --num-nodes 2 --machine-type e2-micro
+
+gcloud container clusters list
+
+kubectl get nodes
+
+kubectl get pods
+
+kubectl run kubia --image=luksa/kubia --port=8080
+
+gcloud container clusters delete k8s1 --region us-central1-c
