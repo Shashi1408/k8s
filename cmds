@@ -14,10 +14,6 @@ kubectl create deployment nginx-deployment --image=nginx:latest --replicas=3
 
 kubectl expose deployment nginx-deployment --name=nginx-service --port=80 --target-port=80 --type=LoadBalancer
 
-kubectl get deployments
-kubectl get services
-kubectl get pods
-
 # Create Tomcat deployment with 3 replicas
 kubectl create deployment tomcat-deployment --image=tomcat:7 --replicas=3
 
