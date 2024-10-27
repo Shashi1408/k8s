@@ -10,8 +10,10 @@ kubectl run kubia --image=luksa/kubia --port=8080
 
 gcloud container clusters delete k8s1 --region us-central1-c
 
+# Create nginx deployment with 3 replicas
 kubectl create deployment nginx-deployment --image=nginx:latest --replicas=3
 
+# Expose the nginx deployment as a service with a LoadBalancer
 kubectl expose deployment nginx-deployment --name=nginx-service --port=80 --target-port=80 --type=LoadBalancer
 
 # Create Tomcat deployment with 3 replicas
