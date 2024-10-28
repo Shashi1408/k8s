@@ -27,3 +27,7 @@ kubectl get deployments
 kubectl get services
 kubectl get pods
 
+kubectl get deployment tomcat-deployment -o yaml | grep -i name
+
+#sha-tc-7chzd needs to be obtained from previos step
+kubectl set image deployment/tomcat-deployment sha-tc-7chzd=sdharr14/sha_tc:2
