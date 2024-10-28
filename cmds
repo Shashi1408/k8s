@@ -27,6 +27,8 @@ kubectl get deployments
 kubectl get services
 kubectl get pods
 
+kubectl create deployment tomcat-deployment --image=sdharr14/sha_tc:1 --replicas=3
+
 kubectl get deployment tomcat-deployment -o yaml | grep -i name
 
 #sha-tc-7chzd needs to be obtained from previos step
