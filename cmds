@@ -33,3 +33,13 @@ kubectl get deployment tomcat-deployment -o yaml | grep -i name
 
 #sha-tc-7chzd needs to be obtained from previos step
 kubectl set image deployment/tomcat-deployment sha-tc-7chzd=sdharr14/sha_tc:2
+
+########
+#cp /tmp/s1/sample.war docker-tomcat-tutorial/
+#cd docker-tomcat-tutorial/
+#docker build .
+#docker images
+#docker tag edea3c71e7e1 sdharr14/sha_tc:2
+#docker images
+#docker push sdharr14/sha_tc:2
+#docker images
