@@ -1,4 +1,4 @@
-gcloud container clusters create k8s1 --region us-central1-c --num-nodes 2 --machine-type e2-micro
+gcloud container clusters create k8s1 --region us-central1-c --num-nodes 2 --machine-type e2-standard-4
 
 gcloud container clusters list
 
