@@ -1,0 +1,22 @@
+Create a clusterrole named deployment-clusterrole, and bind only to create permissions
+for Deployment, Daemonset, and Statefulset
+Create a serviceaccount named cid-token in the specified named named namespace appteam1,
+and create a last-step clusterrole and the serviceaccount binding
+
+kubectl create clusterrole deployment-clusterrole --verb=create --resource=Deployment,StatefulSet,DaemonSet
+kubectl create sa cid-token -n app-team1
+kubectl create clusterrolebinding < check name as per exam > --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token
+
+Set the node named ek8s-node-1 to unavailable and reschedule all allowed pods on the node
+
+kubectl drain ek8s-node-1 --delete-local-data --ignore-daemonsets --force
+
+Given an existing Kubernetes cluster running version 1.18.8, upgrade all of the Kubernetes control plane and node components on the master node only to version 1.19.0
+
+kubectl cordon k8s-master
+kubectl drain k8s-master--delete-local-data --ignore-daemonsets --force
+apt-get upgrade kubeadm=1.19.0-00 kubelet=1.19.0-00 kubectl=1.19.0-00
+systemctl restart kubelet
+kubeadm upgrade apply v1.19.0
+
+
