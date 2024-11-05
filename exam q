@@ -40,19 +40,20 @@ Ensure that the new NetworkPolicy:
 - does not allow access from Pods not in namespace internal.
 
 np.yml
+=======
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-name: all-port-from-namespace
-namespace: internal
+  name: all-port-from-namespace
+  namespace: internal
 spec:
-podSelector:
-matchLabels: {}
-ingress:
-- from:
-- podSelector: {}
-ports:
-- port: 9000
+  podSelector:
+    matchLabels: {}
+    ingress:
+      - from:
+      - podSelector: {}
+    ports:
+      - port: 9000
 
 6. Reconfigure the existing deployment front-end and add a port specification named http
 existing port 80/tcp of the existing container nginx.
