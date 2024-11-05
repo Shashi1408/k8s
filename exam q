@@ -143,16 +143,16 @@ name: consul
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-name: app-config
-labels:
-type: local
+  name: app-config
+  labels:
+    type: local
 spec:
-capacity:
-storage: 2Gi
-accessModes:
-- ReadWriteMany
-hostPath:
-path: "/src/app-config"
+  capacity:
+    storage: 2Gi
+    accessModes:
+      - ReadWriteMany
+    hostPath:
+      path: "/src/app-config"
 
 13. Create a new PersistentVolumeClaim:
 
