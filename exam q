@@ -170,31 +170,33 @@ Create PVC:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-name: pv-volume
+  name: pv-volume
 spec:
-accessModes:
-- ReadWriteOnce
-volumeMode: Filesystem
-resources:
-requests:
-storage: 10Mi
-storageClassName: csi-hostpath-sc
+  accessModes:
+    - ReadWriteOnce
+  volumeMode:
+    Filesystem
+  resources:
+  requests:
+  storage: 10Mi
+  storageClassName: csi-hostpath-sc
+
 Create Pod:
 apiVersion: v1
 kind: Pod
 metadata:
-name: web-server
+  name: web-server
 spec:
-containers:
-- name: nginx
-image: nginx
-volumeMounts:
-- mountPath: "/usr/share/nginx/html"
-name: pv-volume
-volumes:
-- name: pv-volume
-persistentVolumeClaim:
-claimName: myclaim
+  - containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+          - mountPath: "/usr/share/nginx/html"
+            name: pv-volume
+            volumes:
+              - name: pv-volume
+                persistentVolumeClaim:
+                  claimName: myclaim
 
 kubectl edit pvc pv-volume -> edit the pvc and change the size of we can change with kubectl patch
 
