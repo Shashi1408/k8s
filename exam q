@@ -103,15 +103,15 @@ kubectl scale --replicas=6 deployment/loadbalancer
 apiVersion: v1
 kind: Pod
 metadata:
-name: nginx-kusc00401
-labels:
-role: nginx-kusc00401
+  name: nginx-kusc00401
+  labels:
+    role: nginx-kusc00401
 spec:
-nodeSelector:
-disk: spinning
-containers:
-- name: nginx
-image: nginx
+  nodeSelector:
+    disk: spinning
+    containers:
+      - name: nginx
+        image: nginx
 
 10. Check to see how many nodes are ready (not including nodes tainted NoSchedule) and write the number to /opt/KUSC00402/kusc00402.txt
 
