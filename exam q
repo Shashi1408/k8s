@@ -67,29 +67,28 @@ kubectl expose deployment front-end --name=front-end-svc --port=80 --target-port
 The availability of service hi can be checked using the following command, which should return hi:
 
 #curl -kL <INTERNAL_IP>/hi
-Ans.
 #vim ingress.yml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-name: pong
-namespace: ing-internal
-annotations:
-nginx.ingress.kubernetes.io/rewrite-target: /
+  name: pong
+  namespace: ing-internal
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-rules:
-- http:
-paths:
-- path: /hi
-pathType: Prefix
-backend:
-service:
-name: hi
-- Name: pong
-- Namespace: ing-internal
-- Exposing service hi on path /hi using service port 5678
-port:
-number: 5678
+  rules:
+    - http:
+  paths:
+    - path: /hi
+  pathType: Prefix
+  backend:
+    service:
+      name: hi
+        - Name: pong
+        - Namespace: ing-internal
+        - Exposing service hi on path /hi using service port 5678
+      port:
+        number: 5678
 
 8. Scale the deployment loadbalancer to 6 pods.
 
