@@ -1,0 +1,5 @@
+sudo su -
+dpkg -i ./cri-docker_0.3.16.3-0.debian.deb 
+systemctl start cri-docker
+systemctl status cri-docker
+systemctl enable cri-docker
