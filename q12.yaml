@@ -1,0 +1,6 @@
+helm list -n kk-ns
+helm search repo podinfo -n kk-ns
+helm repo list podinfo
+helm search repo podinfo
+helm upgrade kk-mock1 kk-mock1/podinfo --version=6.11.2 -n kk-ns
+helm list -n kk-ns
