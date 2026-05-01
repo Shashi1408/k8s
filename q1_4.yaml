@@ -23,3 +23,4 @@ status: {}
 
 
 ####kubectl set image deployment/nginx-deploy nginx=nginx:1.17
+###rolling update is by default
