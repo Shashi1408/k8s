@@ -1,0 +1,9 @@
+kubectl run nginx-resolver --image=nginx
+kubectl expose pod nginx-resolver --name=nginx-resolver-service --port=80 --target-port=80 --type=ClusterIP
+kubectl get svc
+kubectl describe svc nginx-resolver-service
+kubectl get pod -o wide
+kubectl run test-nslookup --image=busybox:1.28 --rm -it --redtart=Never -- nslookup nginx-resolver-service
+kubectl run test-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup nginx-resolver-service
+kubectl run test-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup nginx-resolver-service > /root/CKA/nginx.svc
+kubectl run test-nslookup --image=busybox:1.28 --rm -it --restart=Never -- nslookup 172.17.0.11 > /root/CKA/nginx.pod
