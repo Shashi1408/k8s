@@ -1,0 +1,2 @@
+kubectl get ns --show-labels
+kubectl apply -f net-pol-3.yaml 
