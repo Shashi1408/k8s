@@ -1,0 +1,4 @@
+helm list -A
+helm get manifest atlanta-page-apd -n atlanta-page-04
+helm get manifest atlanta-page-apd -n atlanta-page-04 | grep -i kodekloud/webapp-color:v1
+helm uninstall atlanta-page-apd -n atlanta-page-04
