@@ -1,0 +1,15 @@
+#create static.yaml under path /etc/kubernetes/manifests
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: niginx-critical
+  name: niginx-critical
+spec:
+  containers:
+  - image: nginx
+    name: niginx-critical
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
