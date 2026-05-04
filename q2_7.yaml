@@ -1,0 +1,23 @@
+kubectl taint node node01 env_type=production:NoSchedule
+kubectl get nodes
+kubectl describe node node01 | grep NoSchedule
+kubectl run dev-redis --image=redis:alpine
+
+create q7.yaml per below
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prod-redis
+spec:
+  tolerations:
+    - effect: NoSchedule
+      key: env_type
+      operator: Equal
+      value: production
+  containers:
+    - name: prod-redis
+      image: redis:alpine
+
+kubectl apply -f q7.yaml 
+kubectl get pod -o wide
