@@ -1,0 +1,36 @@
+kubectl get pv -n storage-ns
+kubectl get pvc -n storage-ns
+kubectl get pvc -n storage-ns -o yaml > q8.yaml
+
+piVersion: v1
+items:
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"PersistentVolumeClaim","metadata":{"annotations":{},"name":"app-pvc","namespace":"storage-ns"},"spec":{"accessModes":["ReadWriteMany"],"resources":{"requests":{"storage":"1Gi"}}}}
+    creationTimestamp: "2026-05-04T09:55:05Z"
+    finalizers:
+    - kubernetes.io/pvc-protection
+    name: app-pvc
+    namespace: storage-ns
+    resourceVersion: "7317"
+    uid: 1af0a3a9-0ea1-4b76-ab8d-e1936e936d14
+  spec:
+    accessModes:
+    - ReadWriteOnce ==> it would be ReadWriteMany but make it to ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi
+    volumeMode: Filesystem
+  status:
+    phase: Pending
+kind: List
+metadata:
+  resourceVersion: ""
+
+kubectl delete pvc app-pvc -n storage-ns
+kubectl apply -f q8.yaml
+kubectl get pvc -n storage-ns
+  
