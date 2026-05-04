@@ -1,0 +1,15 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: low-priority
+value: 50000
+globalDefault: false
+description: "This priority class should be used for XYZ service pods only."
+
+kubectl get pod lp-pod -n low-priority -o yaml > q6.yaml
+
+add below line under spec in q6.yaml
+priorityClassName: low-priority
+
+kubectl apply -f q6.yaml
+kubectl apply -f q6.yaml 
