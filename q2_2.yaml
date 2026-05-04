@@ -1,0 +1,19 @@
+kubectl create serviceaccount pvviewer
+kubectl get sa
+kubectl create clusterrole pvviewer-role --resource=persistentvolumes --verb=list
+kubectl describe clusterrole pvviewer-role
+kubectl create clusterrolebinding pvviewer-role-binding --clusterrole=pvviewer-role --serviceaccount=default:pvviewer
+kubectl describe clusterrolebinding pvviewer-role-binding
+
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pvviewer
+spec: 
+  serviceAccountName: pvviewer
+  containers: 
+    - name: pvviewer
+      image: redis
+
+kubectl apply -f q2.yaml 
+kubectl describe pod pvviewer
