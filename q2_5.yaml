@@ -12,4 +12,4 @@ add below line under spec in q6.yaml
 priorityClassName: low-priority
 
 kubectl apply -f q6.yaml
-kubectl apply -f q6.yaml 
+
