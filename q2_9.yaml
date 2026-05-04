@@ -9,8 +9,6 @@ execute below command to find actual port used by kube-apiserver.
 
 sudo netstat -tulpn | grep kube-apiserver
 
-kubectl get pod -n kube-system
-/etc/kubernetes/manifests/kube-controller-manager.yaml 
 
 By defualt it uses 6443, update the same in file /root/CKA/super.kubeconfig and then execute below command 
 
