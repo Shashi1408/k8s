@@ -1,0 +1,4 @@
+helm install --generate-name /root/new-version/
+helm list
+helm uninstall webpage-server-01
+helm list
