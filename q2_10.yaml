@@ -1,0 +1,13 @@
+kubectl get deploy
+kubectl get rs
+kubectl get pod -n kube-system
+
+kube-controller-manager-controlplane shows errors
+
+check /etc/kubernetes/manifests/kube-controller-manager.yaml(this is the path for all static pods) and correct below errors
+
+kube-contro1ler-manager to kube-controller-manager
+
+then everything will get fixed
+
+
