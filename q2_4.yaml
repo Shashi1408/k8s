@@ -1,13 +1,14 @@
 kubectl create configmap app-config -n cm-namespace --from-literal=ENV=production --from-literal=LOG_LEVEL=info 
 kubectl get configmap app-config -n cm-namespace
 kubectl describe configmap app-config -n cm-namespace
-kubectl edit deployment cm-webapp -n cm-namespace
+kubectl get deployment cm-webapp -n cm-namespace -o yaml > q4.yaml
 
 add below lines under containers
 
       - envFrom:
         - configMapRef:
             name: app-config
-            
+
+kubectl apply -f q4.yaml
 kubectl get pod -n cm-namespace
 
