@@ -1,0 +1,14 @@
+kubectl get node --kubeconfig=/root/CKA/super.kubeconfig
+cat /root/CKA/super.kubeconfig
+
+above file had below entry whoich is incorrect
+
+server: https://controlplane:9999
+
+execute below command to find actual port used by kube-apiserver. 
+
+sudo netstat -tulpn | grep kube-apiserver
+
+By defualt it uses 6443, update the same in file /root/CKA/super.kubeconfig and then execute below command 
+
+kubectl get node --kubeconfig=/root/CKA/super.kubeconfig
