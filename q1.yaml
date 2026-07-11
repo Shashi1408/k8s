@@ -1,3 +1,4 @@
+###refer questions in "k8s prep.docx"
 apiVersion: v1
 kind: Pod
 metadata:
