@@ -33,12 +33,18 @@ kubectl get deployment tomcat-deployment -o yaml | grep -i name
 #########
 #  name: tomcat-deployment
 #  namespace: default
-#        name: tomcat
+#        name: tomcat ==> update here 
 #      schedulerName: default-scheduler
 ########
 #sha-tc-7chzd needs to be obtained from previos step
 kubectl set image deployment/<deployment name> <name as in 3rd line in above para>=sdharr14/sha_tc:2
 
+or in deployment yaml file below section needed to be updated
+##########
+#      containers:
+#      - image: sdharr14/sha_tc:2 ==> update here 
+#        name: tomcat
+#        resources: {}
 ########
 #cp /tmp/s1/sample.war docker-tomcat-tutorial/
 #cd docker-tomcat-tutorial/
